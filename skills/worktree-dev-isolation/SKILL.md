@@ -1,5 +1,5 @@
 ---
-name: git-worktree-management
+name: worktree-dev-isolation
 description: >-
   Set up and operate parallel Git worktrees on any project: collision-free ports per worktree,
   isolated containers and databases, inheritance of untracked files (.env, .npmrc...), and a

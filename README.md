@@ -9,7 +9,7 @@ chargé à la demande.
 
 | Skill | Description |
 |---|---|
-| [git-worktree-management](skills/git-worktree-management/SKILL.md) | Isole des worktrees Git parallèles (ports, conteneurs, base de données, fichiers non versionnés) et expose des commandes `wt-*` uniformes sur Make, Just ou Task. Le runtime est un script bash, sans LLM. |
+| [worktree-dev-isolation](skills/worktree-dev-isolation/SKILL.md) | Isole des worktrees Git parallèles (ports, conteneurs, base de données, fichiers non versionnés) et expose des commandes `wt-*` uniformes sur Make, Just ou Task. Le runtime est un script bash, sans LLM. |
 
 ## Installation
 
@@ -17,10 +17,10 @@ Copier ou lier le dossier d'une skill dans le répertoire de skills de l'agent :
 
 ```bash
 # Skill disponible pour tous les projets (utilisateur)
-ln -s "$(pwd)/skills/git-worktree-management" ~/.claude/skills/git-worktree-management
+ln -s "$(pwd)/skills/worktree-dev-isolation" ~/.claude/skills/worktree-dev-isolation
 
 # Ou limitée à un projet
-ln -s "$(pwd)/skills/git-worktree-management" /chemin/du/projet/.claude/skills/git-worktree-management
+ln -s "$(pwd)/skills/worktree-dev-isolation" /chemin/du/projet/.claude/skills/worktree-dev-isolation
 ```
 
 ## Ajouter une skill
