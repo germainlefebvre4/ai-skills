@@ -1,0 +1,56 @@
+# ------------------------------------------------------------------------------
+# Git Worktree Taskfile Include (go-task)
+# ------------------------------------------------------------------------------
+# Install as Taskfile.wt.yml, then in Taskfile.yml:
+#   includes:
+#     wt: ./Taskfile.wt.yml
+# Usage: task wt:up -- --port 3000
+# ------------------------------------------------------------------------------
+version: '3'
+
+tasks:
+  up:
+    desc: Start worktree environment in foreground
+    cmds:
+      - scripts/worktree-dev.sh up {{.CLI_ARGS}}
+
+  start:
+    desc: Start worktree environment in background (waits for health)
+    cmds:
+      - scripts/worktree-dev.sh up -d {{.CLI_ARGS}}
+
+  stop:
+    desc: Stop app and containers (data kept)
+    cmds:
+      - scripts/worktree-dev.sh stop
+
+  down:
+    desc: Remove containers (use -- --purge to also delete volumes and state)
+    cmds:
+      - scripts/worktree-dev.sh down {{.CLI_ARGS}}
+
+  clean:
+    desc: Remove containers, volumes and slot state (destructive)
+    cmds:
+      - scripts/worktree-dev.sh clean
+
+  sync:
+    desc: Inherit unversioned files (.worktreeinclude) from the main checkout
+    cmds:
+      - scripts/worktree-dev.sh sync
+
+  info:
+    desc: Display slot, ports, URLs, and status
+    cmds:
+      - scripts/worktree-dev.sh info
+
+  env:
+    desc: Output shell exports
+    silent: true
+    cmds:
+      - scripts/worktree-dev.sh env {{.CLI_ARGS}}
+
+  test:
+    desc: Run WT_TEST_CMD (or a health check) against this worktree
+    cmds:
+      - scripts/worktree-dev.sh test
